@@ -1,8 +1,23 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_factory/controller/video_notifier.dart';
+import 'package:flutter_factory/screen/video_page.dart';
+import 'package:provider/provider.dart';
 
-class SliverAppBarScreen extends StatelessWidget {
+class SliverAppBarScreen extends StatefulWidget {
   const SliverAppBarScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SliverAppBarScreen> createState() => _SliverAppBarScreenState();
+}
+
+class _SliverAppBarScreenState extends State<SliverAppBarScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    // data  한번 불러와
+    Provider.of<VideoNotifier>(context, listen: false).fetchAllVideos();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +40,7 @@ class SliverAppBarScreen extends StatelessWidget {
                 actions: [
                   IconButton(
                     onPressed: () {
-                      if (kDebugMode) print('Map pressed');
+                      // print('Map pressed');
                     },
                     icon: const Icon(Icons.map),
                     highlightColor: Colors.blue,
@@ -33,7 +48,7 @@ class SliverAppBarScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      if (kDebugMode) print("Cart Tapped");
+                      // print("Cart Tapped");
                     },
                     style:
                         ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
@@ -63,7 +78,6 @@ class SliverAppBarScreen extends StatelessWidget {
   }
 
   //--------------------- refactor widget ---------------------------------//
-  // info : 1. 탭바
   TabBar _buildTabBar() {
     return const TabBar(
         indicatorWeight: 5,
@@ -71,15 +85,15 @@ class SliverAppBarScreen extends StatelessWidget {
         labelColor: Colors.blue,
         unselectedLabelColor: Colors.grey,
         tabs: [
-          Tab(icon: Icon(Icons.people), child: Text('Contacts')),
-          Tab(icon: Icon(Icons.settings), child: Text('Settings')),
+          Tab(icon: Icon(Icons.video_collection), child: Text('Videos')),
+          Tab(icon: Icon(Icons.file_copy_outlined), child: Text('Docs')),
         ]);
   }
 
   // info : 2. 화면의 탭바 뷰
   TabBarView _buildTabBarView() {
     return TabBarView(children: [
-      Container(color: Colors.amber),
+      const VideoPage(),
       Container(color: Colors.pink),
     ]);
   }

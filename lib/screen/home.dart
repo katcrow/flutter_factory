@@ -5,7 +5,6 @@ import 'package:flutter_factory/widgets/custom_bottom_navigation_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
