@@ -18,23 +18,19 @@ class VideoListTile extends StatelessWidget {
               'https://mblogthumb-phinf.pstatic.net/MjAxNzA2MTlfNDgg/MDAxNDk3ODAwMTMzNDIx.GF4RP0mOJpPcemv2CX2cA8b08L23eJ0VFpIKqpAw7jIg.G2-7h3-G5PArRS2WO9MCvAvzFibyHi0M0KJb8r9hTeog.JPEG.kusshand_official/3.jpg?type=w800'),
           Container(
             color: Colors.black,
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'View',
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.blue,
                           fontWeight: FontWeight.bold),
                     )),
-                // Text(
-                //   'View', //videoModel.title ?? 'No Title',
-                //   style: const TextStyle(fontSize: 20),
-                // ),
                 IconButton(
                     onPressed: () {},
                     icon: const Icon(

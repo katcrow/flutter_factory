@@ -50,8 +50,9 @@ class _SliverAppBarScreenState extends State<SliverAppBarScreen> {
                     onPressed: () {
                       // print("Cart Tapped");
                     },
-                    style:
-                        ButtonStyle(foregroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.blue)),
                     child: const Text('Cart'),
                   ),
                 ],
@@ -61,7 +62,8 @@ class _SliverAppBarScreenState extends State<SliverAppBarScreen> {
                     /**
                      * chk : 앱바 크기와 아래 탭바 크기를 제외한 영역 .. 중요함
                      */
-                    padding: const EdgeInsets.symmetric(vertical: kToolbarHeight),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: kToolbarHeight),
                     child: Image.asset(
                       "assets/images/logo.png",
                     ),
@@ -92,9 +94,12 @@ class _SliverAppBarScreenState extends State<SliverAppBarScreen> {
 
   // info : 2. 화면의 탭바 뷰
   TabBarView _buildTabBarView() {
-    return TabBarView(children: [
-      const VideoPage(),
-      Container(color: Colors.pink),
-    ]);
+    return TabBarView(
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        const VideoPage(),
+        Container(color: Colors.pink),
+      ],
+    );
   }
 }
